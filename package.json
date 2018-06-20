@@ -10,6 +10,8 @@
   "author": "Shiyao Li",
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.3.1",
+    "materialize-css": "^1.0.0-rc.1",
     "path": "^0.12.7"
   },
   "devDependencies": {
