@@ -1,8 +1,8 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import About from './about.jsx';
 import Projects from './projects.jsx';
 import Contact from './contact.jsx';
+import Navbar from './navbar.jsx';
 
 class Home extends React.Component {
   constructor(props) {
@@ -51,12 +51,14 @@ class Home extends React.Component {
               <div id="pic-holder">
                 <img id="home-pic" src="../../client/dist/homepage_picture.jpg" />
               </div>
+              <div id="name-holder">
+                <span id="name">Shiyao Li</span>
+              </div>
               <div className="row">
                 <div className="col s2 offset-l3" onClick={() => this.handleClick('about')}><a className="waves-effect waves-orange btn-flat">About</a></div>
                 <div className="col s2" onClick={() => this.handleClick('projects')}><a className="waves-effect waves-orange btn-flat">Projects</a></div>
                 <div className="col s2" onClick={() => this.handleClick('contact')}><a className="waves-effect waves-orange btn-flat">Contact</a></div>
               </div>
-              
             </div>
           </div>
         </div>
@@ -64,15 +66,9 @@ class Home extends React.Component {
     } else {
       return (
         <div>
-          <nav>
-            <div className="nav-wrapper white">
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a><span className="navbar">About</span></a></li>
-                <li><a><span className="navbar">Projects</span></a></li>
-                <li><a><span className="navbar">Contact</span></a></li>
-              </ul>
-            </div>
-          </nav>
+          <div>
+            <Navbar />
+          </div>
           <div>
           {this.renderPages()}
           </div>

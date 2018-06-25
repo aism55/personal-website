@@ -4,7 +4,7 @@ const About = () => {
 
   return ( 
     <div>
-      Hello World!!!!!!!
+      To add about
     </div>
   )
 }
