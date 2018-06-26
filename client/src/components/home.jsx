@@ -46,7 +46,7 @@ class Home extends React.Component {
       return (
         <div className="valign-wrapper center-align" style={valignWrapperStyle}>
           <div className="valign" style={valignStyle}> 
-            <div className="container">
+            {/* <div className="container"> */}
               <div id="pic-holder">
                 <img id="home-pic" src="../../client/dist/homepage_picture.jpg" />
               </div>
@@ -54,35 +54,40 @@ class Home extends React.Component {
                 <span id="name">Shiyao Li</span>
               </div>
               <div className="row">
-                <div className="col s2 offset-l3" onClick={() => this.handleClick('about')}><a className="waves-effect waves-orange btn-flat">About</a></div>
-                <div className="col s2" onClick={() => this.handleClick('projects')}><a className="waves-effect waves-orange btn-flat">Projects</a></div>
-                <div className="col s2" onClick={() => this.handleClick('contact')}><a className="waves-effect waves-orange btn-flat">Contact</a></div>
+                <div className="col s2 offset-l3" onClick={() => this.handleClick('about')}><a className="btn-flat homepage-buttons">About</a></div>
+                <div className="col s2" onClick={() => this.handleClick('projects')}><a className="btn-flat homepage-buttons">Projects</a></div>
+                <div className="col s2" onClick={() => this.handleClick('contact')}><a className="btn-flat homepage-buttons">Contact</a></div>
               </div>
+            {/* </div> */}
+          </div>
+        </div>
+      );
+    } 
+    return (
+      <div>
+        <div className="valign-wrapper center-align" style={valignWrapperStyle}>
+          <nav>
+            <div className="nav-wrapper white">
+              <div className="row">
+                <div className="col s2 offset-l3" onClick={() => this.handleClick('about')}><a className="btn-flat homepage-buttons">About</a></div>
+                <div className="col s2" onClick={() => this.handleClick('projects')}><a className="btn-flat homepage-buttons">Projects</a></div>
+                <div className="col s2" onClick={() => this.handleClick('contact')}><a className="btn-flat homepage-buttons">Contact</a></div>
+              </div>
+              {/* <div className></div> */}
+              {/* <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li><a onClick={() => this.handleClick('home')}><span className="navbar">Home</span></a></li>
+                <li><a onClick={() => this.handleClick('about')}><span className="navbar">About</span></a></li>
+                <li><a onClick={() => this.handleClick('projects')}><span className="navbar">Projects</span></a></li>
+                <li><a onClick={() => this.handleClick('contact')}><span className="navbar">Contact</span></a></li>
+              </ul> */}
             </div>
-          </div>
+          </nav>
         </div>
-      );
-    } else {
-      return (
         <div>
-          <div>
-            <nav>
-              <div className="nav-wrapper white">
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                  <li><a onClick={() => this.handleClick('home')}><span className="navbar">Home</span></a></li>
-                  <li><a onClick={() => this.handleClick('about')}><span className="navbar">About</span></a></li>
-                  <li><a onClick={() => this.handleClick('projects')}><span className="navbar">Projects</span></a></li>
-                  <li><a onClick={() => this.handleClick('contact')}><span className="navbar">Contact</span></a></li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-          <div>
-            {this.renderPages()}
-          </div>
+          {this.renderPages()}
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 
