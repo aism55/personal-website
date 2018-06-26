@@ -2,7 +2,6 @@ import React from 'react';
 import About from './about.jsx';
 import Projects from './projects.jsx';
 import Contact from './contact.jsx';
-import Navbar from './navbar.jsx';
 
 class Home extends React.Component {
   constructor(props) {
@@ -67,10 +66,19 @@ class Home extends React.Component {
       return (
         <div>
           <div>
-            <Navbar />
+            <nav>
+              <div className="nav-wrapper white">
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                  <li><a onClick={() => this.handleClick('home')}><span className="navbar">Home</span></a></li>
+                  <li><a onClick={() => this.handleClick('about')}><span className="navbar">About</span></a></li>
+                  <li><a onClick={() => this.handleClick('projects')}><span className="navbar">Projects</span></a></li>
+                  <li><a onClick={() => this.handleClick('contact')}><span className="navbar">Contact</span></a></li>
+                </ul>
+              </div>
+            </nav>
           </div>
           <div>
-          {this.renderPages()}
+            {this.renderPages()}
           </div>
         </div>
       );
