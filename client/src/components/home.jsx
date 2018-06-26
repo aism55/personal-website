@@ -11,6 +11,7 @@ class Home extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.renderPages = this.renderPages.bind(this);
+    this.renderNavMenu = this.renderNavMenu.bind(this);
   }
 
   handleClick(option) {
@@ -27,6 +28,16 @@ class Home extends React.Component {
     } else if (this.state.currentPage === 'contact') {
       return <Contact />;
     }
+  }
+
+  renderNavMenu() {
+    return (
+      <div className="row">
+        <div className="col s2 offset-l3" onClick={() => this.handleClick('about')}><a className={this.state.currentPage === "about" ? "btn-flat nav-selected": "btn-flat homepage-buttons"}>About</a></div>
+        <div className="col s2" onClick={() => this.handleClick('projects')}><a className={this.state.currentPage === "projects" ? "btn-flat nav-selected": "btn-flat homepage-buttons"}>Projects</a></div>
+        <div className="col s2" onClick={() => this.handleClick('contact')}><a className={this.state.currentPage === "contact" ? "btn-flat nav-selected": "btn-flat homepage-buttons"}>Contact</a></div>
+      </div>
+    );
   }
 
   render() {
@@ -46,19 +57,13 @@ class Home extends React.Component {
       return (
         <div className="valign-wrapper center-align" style={valignWrapperStyle}>
           <div className="valign" style={valignStyle}> 
-            {/* <div className="container"> */}
               <div id="pic-holder">
                 <img id="home-pic" src="../../client/dist/homepage_picture.jpg" />
               </div>
               <div id="name-holder">
                 <span id="name">Shiyao Li</span>
               </div>
-              <div className="row">
-                <div className="col s2 offset-l3" onClick={() => this.handleClick('about')}><a className="btn-flat homepage-buttons">About</a></div>
-                <div className="col s2" onClick={() => this.handleClick('projects')}><a className="btn-flat homepage-buttons">Projects</a></div>
-                <div className="col s2" onClick={() => this.handleClick('contact')}><a className="btn-flat homepage-buttons">Contact</a></div>
-              </div>
-            {/* </div> */}
+              {this.renderNavMenu()}
           </div>
         </div>
       );
@@ -68,18 +73,7 @@ class Home extends React.Component {
         <div className="valign-wrapper center-align" style={valignWrapperStyle}>
           <nav>
             <div className="nav-wrapper white">
-              <div className="row">
-                <div className="col s2 offset-l3" onClick={() => this.handleClick('about')}><a className="btn-flat homepage-buttons">About</a></div>
-                <div className="col s2" onClick={() => this.handleClick('projects')}><a className="btn-flat homepage-buttons">Projects</a></div>
-                <div className="col s2" onClick={() => this.handleClick('contact')}><a className="btn-flat homepage-buttons">Contact</a></div>
-              </div>
-              {/* <div className></div> */}
-              {/* <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a onClick={() => this.handleClick('home')}><span className="navbar">Home</span></a></li>
-                <li><a onClick={() => this.handleClick('about')}><span className="navbar">About</span></a></li>
-                <li><a onClick={() => this.handleClick('projects')}><span className="navbar">Projects</span></a></li>
-                <li><a onClick={() => this.handleClick('contact')}><span className="navbar">Contact</span></a></li>
-              </ul> */}
+              {this.renderNavMenu()}
             </div>
           </nav>
         </div>
